@@ -1,11 +1,15 @@
 import { Button } from "@material-ui/core";
-
 import Add from '../assets/Add.svg';
+import Minus from '../assets/Minus.svg';
 
-const AddButton = ({ text, color, onClick }) => {
-  return (
-    <Button>
-      <img src={Add} alt="React Logo" />
+const AddButton = ({ setShowAddItem,showAddItem }) => {
+  const show= () => {
+    setShowAddItem(!showAddItem);
+  };
+
+  return ( 
+    <Button >
+      <img onClick={show} src={showAddItem ? Minus : Add} alt={Add}/>
     </Button>
   );
 };

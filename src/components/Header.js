@@ -1,14 +1,15 @@
 import PropTypes from "prop-types";
-import AddButton from './AddButton'
+import { useTheme } from "@material-ui/core/styles";
 
-const Header = (props) => {
-    const onClick = () => {
-        console.log('click')
-    }
+const Header = ({ title }) => {
+  const customTheme = useTheme();
+
+  // Accessing the primary color
+  const primaryColor = customTheme.palette.primary.main;
+
   return (
-    <header className='header'>
-      <h1>{props.title}</h1>
-      <AddButton  onClick={onClick} color='green' text='Add List!'/>
+    <header className="header" color="primaryColor">
+      <h1 style={{ color: primaryColor }}>{title}</h1>
     </header>
   );
 };
